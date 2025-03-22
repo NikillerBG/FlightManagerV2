@@ -3,7 +3,6 @@ using DataLayer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Model.Data;
 using MVCApplication.Models;
 using System.Diagnostics;
 
@@ -34,9 +33,9 @@ namespace MVCApplication.Controllers
 
             await _context.SaveChangesAsync();
 
-            if (await _identityContext.FindUserByNameAsync("admin@admin.net") is null)
+            if (await _identityContext.FindUserByNameAsync("admin") is null)
             {
-                await _identityContext.CreateUserAsync("admin@admin.net", "admin", Role.Admin);
+                await _identityContext.CreateUserAsync("admin", "admin", "admin", "admin", "0000000000", "address", Role.Administrator);
             }
             return View();
         }

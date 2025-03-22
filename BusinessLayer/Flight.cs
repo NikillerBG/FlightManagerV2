@@ -19,6 +19,9 @@ namespace BusinessLayer
         public DateTime Arrival { get; set; }
 
         [Required]
+        public int PlaneId { get; set; }
+
+        [Required]
         public Plane Plane { get; set; }
 
         [Required]

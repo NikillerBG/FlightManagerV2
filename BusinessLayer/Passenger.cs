@@ -28,6 +28,7 @@ namespace BusinessLayer
         public string TicketType { get; set; } // "Economy" or "Business"
 
         public int ReservationId { get; set; }
+
         public Reservation Reservation { get; set; }
     }
 }

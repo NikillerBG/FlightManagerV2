@@ -21,17 +21,16 @@ namespace BusinessLayer
 
         public User()
         {
-            
+            Id = Guid.NewGuid().ToString();
         }
 
-        public User(string firstName, string lastName, string egn, string address, Role role)
+        public User(string username, string firstName, string lastName, string egn, string address)
         {
-            Id = Guid.NewGuid().ToString();
+            UserName = username;
             FirstName = firstName;
             LastName = lastName;
             EGN = egn;
             Address = address;
-            Role = role;
         }
     }
 }

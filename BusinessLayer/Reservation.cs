@@ -14,12 +14,10 @@ namespace BusinessLayer
         [Required, EmailAddress]
         public string Email { get; set; }
 
+        [Required]
         public int FlightId { get; set; }
 
+        [Required]
         public Flight Flight { get; set; }
-
-        public int PassengerId { get; set; }
-
-        public Passenger Passenger { get; set; }
     }
 }

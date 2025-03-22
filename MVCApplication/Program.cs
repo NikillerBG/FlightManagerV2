@@ -2,7 +2,6 @@ using DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using BusinessLayer;
-using Model.Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace MVCApplication
@@ -13,11 +12,10 @@ namespace MVCApplication
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.
-            UseSqlServer(builder.Configuration.GetConnectionString(@"Server=LEGION\SQLEXPRESS;Database=FoodDB;Trusted_Connection=True;TrustServerCertificate=True")));
+            UseSqlServer(builder.Configuration.GetConnectionString(@"Server=ASUS-KIKO\SQLEXPRESS;Database=FlightManagerDatabase;Trusted_Connection=True;TrustServerCertificate=True")));
 
             builder.Services.AddIdentity<User, IdentityRole>
                 (options => options.SignIn.RequireConfirmedAccount = false)
@@ -27,8 +25,10 @@ namespace MVCApplication
             
             builder.Services.AddScoped<ApplicationDbContext>();
             builder.Services.AddScoped<IdentityContext>();
-            builder.Services.AddScoped<UserContext>();
-            builder.Services.AddScoped<FoodContext>();
+            builder.Services.AddScoped<FlightContext>();
+            builder.Services.AddScoped<PassengerContext>();
+            builder.Services.AddScoped<PlaneContext>();
+            builder.Services.AddScoped<Reservation>();
             builder.Services.AddScoped<UserManager<User>>();
 
             builder.Services.AddScoped<IEmailSender, NoOpEmailSender>();
