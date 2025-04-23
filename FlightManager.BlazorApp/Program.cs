@@ -23,7 +23,8 @@ namespace FlightManager.BlazorApp
             builder.Services.AddScoped<FlightContext>();
             builder.Services.AddScoped<PassengerContext>();
             builder.Services.AddScoped<PlaneContext>();
-            builder.Services.AddScoped<Reservation>();
+            builder.Services.AddScoped<ReservationContext>();
+
 
             builder.Services.AddIdentity<User, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()

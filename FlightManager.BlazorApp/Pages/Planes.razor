@@ -1,0 +1,46 @@
+﻿@page "/planes"
+@using BusinessLayer
+@using DataLayer
+@inject PlaneContext Context
+
+<h3>Planes</h3>
+
+@if (planes == null)
+{
+    <p><em>Loading planes...</em></p>
+}
+else if (!planes.Any())
+{
+    <p>No planes found.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Economy Capacity</th>
+                <th>Business Capacity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var plane in planes)
+            {
+                <tr>
+                    <td>@plane.PlaneType</td>
+                    <td>@plane.EconomyCapacity</td>
+                    <td>@plane.BusinessCapacity</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Plane> planes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        planes = await Context.ReadAllAsync();
+    }
+}

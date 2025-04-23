@@ -1,0 +1,44 @@
+﻿@page "/reservations"
+@using BusinessLayer
+@using DataLayer
+@inject ReservationContext Context
+
+<h3>Reservations</h3>
+
+@if (reservations == null)
+{
+    <p><em>Loading reservations...</em></p>
+}
+else if (!reservations.Any())
+{
+    <p>No reservations found.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Flight ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var res in reservations)
+            {
+                <tr>
+                    <td>@res.Email</td>
+                    <td>@res.FlightId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Reservation> reservations;
+
+    protected override async Task OnInitializedAsync()
+    {
+        reservations = await Context.ReadAllAsync();
+    }
+}

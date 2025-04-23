@@ -1,0 +1,52 @@
+﻿@page "/passengers"
+@using BusinessLayer
+@using DataLayer
+@inject PassengerContext Context
+
+<h3>Passengers</h3>
+
+@if (passengers == null)
+{
+    <p><em>Loading passengers...</em></p>
+}
+else if (!passengers.Any())
+{
+    <p>No passengers found.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>EGN</th>
+                <th>Phone</th>
+                <th>Nationality</th>
+                <th>Ticket Type</th>
+                <th>Reservation ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in passengers)
+            {
+                <tr>
+                    <td>@($"{p.FirstName} {p.MiddleName} {p.LastName}")</td>
+                    <td>@p.EGN</td>
+                    <td>@p.PhoneNumber</td>
+                    <td>@p.Nationality</td>
+                    <td>@p.TicketType</td>
+                    <td>@p.ReservationId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Passenger> passengers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        passengers = await Context.ReadAllAsync();
+    }
+}
