@@ -1,8 +1,10 @@
-using DataLayer;
+﻿using DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using BusinessLayer;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using MVCApplication.Services;
+
 
 namespace MVCApplication
 {
@@ -22,7 +24,7 @@ namespace MVCApplication
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            
+
             builder.Services.AddScoped<ApplicationDbContext>();
             builder.Services.AddScoped<IdentityContext>();
             builder.Services.AddScoped<FlightContext>();
@@ -90,11 +92,9 @@ namespace MVCApplication
             app.UseAuthorization();
 
             app.MapRazorPages();
-            app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
-                .WithStaticAssets();
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }

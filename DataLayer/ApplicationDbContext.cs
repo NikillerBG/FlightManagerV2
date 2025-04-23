@@ -19,7 +19,7 @@ namespace DataLayer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=ASUS-KIKO\SQLEXPRESS;Database=FlightManagerDatabase;Trusted_Connection=True;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer(@"Server=LEGION\SQLEXPRESS;Database=FlightDB;Trusted_Connection=True;TrustServerCertificate=True");
             base.OnConfiguring(optionsBuilder);
         }
 

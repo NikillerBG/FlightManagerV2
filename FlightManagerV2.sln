@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35521.163 d17.12
+VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{F4C4F80D-DD03-4D19-856C-F2B54EB0DCD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{C77517FC-3C93-46F1-BBCF-9C2ABF42E992}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCApplication", "MVCApplication\MVCApplication.csproj", "{1AF3121B-408A-4413-A937-2554E26D56AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.BlazorApp", "FlightManager.BlazorApp\FlightManager.BlazorApp.csproj", "{4EA85D9D-048F-4E7D-B282-FC263C511DEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +29,15 @@ Global
 		{1AF3121B-408A-4413-A937-2554E26D56AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AF3121B-408A-4413-A937-2554E26D56AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AF3121B-408A-4413-A937-2554E26D56AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EA85D9D-048F-4E7D-B282-FC263C511DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EA85D9D-048F-4E7D-B282-FC263C511DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EA85D9D-048F-4E7D-B282-FC263C511DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EA85D9D-048F-4E7D-B282-FC263C511DEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7675D2C-5300-4F0D-BB77-7EEDD7466894}
 	EndGlobalSection
 EndGlobal

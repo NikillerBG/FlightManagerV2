@@ -1,0 +1,56 @@
+﻿@page "/flights"
+@using BusinessLayer
+@using DataLayer
+@inject FlightContext Context
+
+<h3>Flights</h3>
+
+@if (flights == null)
+{
+        <p><em>Loading flights...</em></p>
+}
+else if (!flights.Any())
+{
+        <p>No flights found.</p>
+}
+else
+{
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Plane Type</th>
+                    <th>Economy</th>
+                    <th>Business</th>
+                    <th>Pilot</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var flight in flights)
+            {
+                        <tr>
+                            <td>@flight.From</td>
+                            <td>@flight.To</td>
+                            <td>@flight.Departure.ToString("g")</td>
+                            <td>@flight.Arrival.ToString("g")</td>
+                            <td>@flight.Plane?.PlaneType</td>
+                            <td>@flight.Plane?.EconomyCapacity</td>
+                            <td>@flight.Plane?.BusinessCapacity</td>
+                            <td>@flight.PilotName</td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+}
+
+@code {
+    private List<Flight> flights;
+
+    protected override async Task OnInitializedAsync()
+    {
+        flights = await Context.ReadAllAsync(useNavigationalProperties: true);
+    }
+}
